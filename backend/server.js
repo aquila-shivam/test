@@ -42,8 +42,8 @@ app.get('/api/parties/add', parties.add);
 //banks routes
 app.get('/api/banks.json', banks.list);
 app.get('/api/banks/:id.json', banks.one);
-app.get('/api/banks/edit/:id', banks.edit);
-app.get('/api/banks/add', banks.add);
+app.patch('/api/banks/edit/:id', banks.edit);
+app.post('/api/banks/add', banks.add);
 app.delete('/api/banks/:id', banks.delete);
 
 //invoices routes

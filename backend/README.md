@@ -77,7 +77,7 @@ DATABASE_URL="postgresql://<username>:<password>@localhost:5432/<database>"
 
 ```bash
  For Production:  npm start
- For Development:  npm startdev
+ For Development:  npm start dev
 ```
 
 - By default, the server will run on `localhost:8080`.

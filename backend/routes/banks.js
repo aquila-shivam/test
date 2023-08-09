@@ -36,17 +36,17 @@ exports.add = async function (req, res) {
   try {
     const newBank = await prisma.bankAccount.create({
       data: {
-        DisplayName,
-        BankName,
-        BankAddress,
-        AccountNumber,
-        IFSCode,
-        SWIFTCode,
-        Branch,
-        gstId,
-        OpeningBalance,
-        company: { connect: { id: companyId } },
-      },
+        BankName:BankName,
+        BankAddress:BankAddress,
+        AccountNumber:AccountNumber,
+        IFSCode:IFSCode,
+        SWIFTCode:SWIFTCode,
+        Branch:Branch,
+        gstID:gstId,
+        OpeningBalance:OpeningBalance,
+        Company: { connect: { id: companyId } },
+        DisplayName:DisplayName,
+      }
     });
     res.json(newBank);
   } catch (error) {
@@ -58,21 +58,20 @@ exports.add = async function (req, res) {
 exports.edit = async (req, res) => {
   const { id } = req.params;
   const { DisplayName, BankName, BankAddress, AccountNumber, IFSCode, SWIFTCode, Branch, gstID, OpeningBalance, companyId } = req.body;
-
   try {
     const updatedBank = await prisma.bankAccount.update({
-      where: { id: parseInt(id) },
+      where: { id: parseInt(id)},
       data: {
-        DisplayName,
-        BankName,
-        BankAddress,
-        AccountNumber,
-        IFSCode,
-        SWIFTCode,
-        Branch,
-        gstID,
-        OpeningBalance,
-        company: { connect: { id: companyId } },
+        DisplayName:DisplayName,
+        BankName:BankName,
+        BankAddress:BankAddress,
+        AccountNumber: AccountNumber,
+        IFSCode:IFSCode,
+        SWIFTCode:SWIFTCode,
+        Branch:Branch,
+        gstID:gstID,
+        OpeningBalance:OpeningBalance,
+        Company: { connect: { id: companyId } },
       },
     });
     res.json(updatedBank);
